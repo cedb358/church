@@ -1,0 +1,6 @@
+1 criar modelo
+2 mapear ele no persistence
+3 criar o dao -- nao criar usar dao generico
+4 criar o bean
+5 criar o xhtml
+

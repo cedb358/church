@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head></h:head>
+    <h:body>
+        <h1>Novo Livro</h1>
+
+        <h:form>
+            <p:panel>
+                <legend>Dados do Livro</legend>
+                <h:panelGrid columns= "2">
+
+                    <h:outputLabel value= "Titulo:" for="titulo" />
+                    <p:inputText id="titulo" value= "#{livroBean.livro.titulo}"  />
+                    <h:outputLabel value= "ISBN:" for="isbn" />
+                    <p:inputText id="isbn" value= "#{livroBean.livro.isbn}"   />
+                    <h:outputLabel value= "Preco:" for="preco" />
+                    <p:inputText id="preco" value="#{livroBean.livro.preco}"/>
+                    <h:outputLabel value= "Data de Lancamento:" for="datalancamento" />
+                    <p:inputText id="datalancamento" value= "#{livroBean.livro.dataLancamento}"   />
+                    <p:commandButton 
+                                     ajax="true"
+                                     update="@form"
+                                     process="@form"
+                                    
+                                     value="Gravar" action="#{livroBean.gravar}" />
+
+                </h:panelGrid>
+
+            </p:panel>
+            <p:panel>
+
+               
+                <p:dataTable  var="livro" value="#{livroBean.dmLivro}">
+
+                    <p:column headerText="Codigo">                       
+                        <h:outputText value="#{livro.id}"/>
+                    </p:column>
+
+                    <p:column headerText="Titulo">
+
+                        <h:outputText value="#{livro.titulo}"/>
+                    </p:column>
+                </p:dataTable>
+            </p:panel>
+
+        </h:form>
+    </h:body>
+</html>

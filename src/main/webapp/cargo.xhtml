@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head></h:head>
+    <h:body>
+        <h1>Cargo</h1>
+
+        <h:form>
+            <p:panel>
+                <legend>Dados do Cargo</legend>
+                <h:panelGrid columns= "2">
+
+                    <h:outputLabel value= "Cargo:" for="dscargo" />
+                    <p:inputText id="dscargo" value= "#{cargoBean.cargo.dsCargo}"  />
+                    <p:commandButton 
+                        ajax="true"
+                        update="@form"
+                        process="@form"
+
+                        value="Gravar" action="#{cargoBean.gravar}" />
+
+                </h:panelGrid>
+
+            </p:panel>
+            <p:panel>
+
+
+                <p:dataTable  var="cargo" value="#{cargoBean.dmCargo}">
+
+                    <p:column headerText="Codigo">                       
+                        <h:outputText value="#{cargo.id}"/>
+                    </p:column>
+
+                    <p:column headerText="Cargo">
+
+                        <h:outputText value="#{cargo.dsCargo}"/>
+                    </p:column>
+
+                </p:dataTable>
+            </p:panel>
+
+        </h:form>
+    </h:body>
+</html>

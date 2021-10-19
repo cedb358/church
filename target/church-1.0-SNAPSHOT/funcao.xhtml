@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head></h:head>
+    <h:body>
+        <h1>Funcao</h1>
+
+        <h:form>
+            <p:panel>
+                <legend>Dados da Funcao</legend>
+                <h:panelGrid columns= "2">
+
+                    <h:outputLabel value= "Funcao:" for="dsfuncao" />
+                    <p:inputText id="dsfuncao" value= "#{funcaoBean.funcao.dsFuncao}"  />
+                    <p:commandButton 
+                        ajax="true"
+                        update="@form"
+                        process="@form"
+
+                        value="Gravar" action="#{funcaoBean.gravar}" />
+
+                </h:panelGrid>
+
+            </p:panel>
+            <p:panel>
+
+
+                <p:dataTable  var="funcao" value="#{funcaoBean.dmFuncao}">
+
+                    <p:column headerText="Codigo">                       
+                        <h:outputText value="#{funcao.id}"/>
+                    </p:column>
+
+                    <p:column headerText="Funcao">
+
+                        <h:outputText value="#{funcao.dsFuncao}"/>
+                    </p:column>
+
+                </p:dataTable>
+            </p:panel>
+
+        </h:form>
+    </h:body>
+</html>
